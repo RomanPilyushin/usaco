@@ -34,11 +34,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set reusable strings
+      - name: Set reusable strings (Linux and macOS)
         id: strings
         shell: bash
+        if: matrix.os != 'windows-latest'
         run: |
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+      - name: Set reusable strings (Windows)
+        id: strings
+        shell: bash
+        if: matrix.os == 'windows-latest'
+        run: |
+          echo "build-output-dir=${{ github.workspace }}\build" >> "$GITHUB_OUTPUT"  
+
+
 
       - name: Configure CMake (Linux and macOS)
         if: matrix.os != 'windows-latest'
