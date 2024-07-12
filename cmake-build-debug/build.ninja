@@ -63,6 +63,13 @@ build CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj: CXX_COMPILER__USA
   OBJECT_DIR = CMakeFiles\USACOSolution.dir
   OBJECT_FILE_DIR = CMakeFiles\USACOSolution.dir\src
 
+build CMakeFiles/USACOSolution.dir/src/teleportation.cpp.obj: CXX_COMPILER__USACOSolution_unscanned_Debug C$:/Users/User/CLionProjects/usaco/src/teleportation.cpp || cmake_object_order_depends_target_USACOSolution
+  DEP_FILE = CMakeFiles\USACOSolution.dir\src\teleportation.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/User/CLionProjects/usaco/include
+  OBJECT_DIR = CMakeFiles\USACOSolution.dir
+  OBJECT_FILE_DIR = CMakeFiles\USACOSolution.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target USACOSolution
@@ -71,7 +78,7 @@ build CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj: CXX_COMPILER__USA
 #############################################
 # Link the executable USACOSolution.exe
 
-build USACOSolution.exe: CXX_EXECUTABLE_LINKER__USACOSolution_Debug CMakeFiles/USACOSolution.dir/src/main.cpp.obj CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj
+build USACOSolution.exe: CXX_EXECUTABLE_LINKER__USACOSolution_Debug CMakeFiles/USACOSolution.dir/src/main.cpp.obj CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj CMakeFiles/USACOSolution.dir/src/teleportation.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\USACOSolution.dir

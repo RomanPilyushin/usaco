@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "birthday-party.h"
+#include "teleportation.h"
 using namespace std;
 
 void setIO(string name = "") {  // name is nonempty for USACO file I/O
@@ -13,9 +13,7 @@ void setIO(string name = "") {  // name is nonempty for USACO file I/O
 
 int main() {
     setIO();
-    int n, m;
-    while (cin >> n >> m && (n || m)) {
-        solve(n, m);
-    }
+    Teleportation tp; // Create an object of the Teleportation class
+    tp.solve(); // Call the solve method
     return 0;
 }

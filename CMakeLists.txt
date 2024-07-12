@@ -8,4 +8,5 @@ include_directories(include)
 add_executable(USACOSolution
         src/main.cpp
         src/birthday-party.cpp
+        src/teleportation.cpp
 )

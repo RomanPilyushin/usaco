@@ -1,3 +1,17 @@
+//https://open.kattis.com/problems/birthday
+//https://usaco.guide/problems/kattis-birthday-party/solution
+
+// int main() {
+//     setIO();
+//     int n, m;
+//     BirthdayParty bp; // Create an object of the BirthdayParty class
+//     while (cin >> n >> m && (n || m)) {
+//         bp.solve(n, m); // Call the solve method
+//     }
+//     return 0;
+// }
+
+
 #include "birthday-party.h"
 #include <bits/stdc++.h>
 using namespace std;
@@ -12,7 +26,7 @@ void dfs(int v, int n) {
     }
 }
 
-void solve(int n, int m) {
+void BirthdayParty::solve(int n, int m) {
     memset(adj, false, sizeof(adj));
     vector<pair<int, int>> edges;
     for (int i = 0; i < m; i++) {

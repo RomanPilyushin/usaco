@@ -1,4 +1,6 @@
 # ninja log v6
-8	2100	7406013628951252	CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj	729165e19f09026b
-9	1648	7406013760123015	CMakeFiles/USACOSolution.dir/src/main.cpp.obj	4079f32a9379e9df
-1649	1996	7406013776516693	USACOSolution.exe	8cb820ea82cde389
+16	1688	7411938310569882	CMakeFiles/USACOSolution.dir/src/birthday-party.cpp.obj	729165e19f09026b
+1480	1649	7411940053302919	USACOSolution.exe	59250fbb241fdcdf
+12	1480	7411940038622954	CMakeFiles/USACOSolution.dir/src/main.cpp.obj	4079f32a9379e9df
+8	956	7411942003007789	build.ninja	63517953a0cbe9d4
+18	1464	7411940038682931	CMakeFiles/USACOSolution.dir/src/teleportation.cpp.obj	2144d451db959682
