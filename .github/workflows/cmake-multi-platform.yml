@@ -34,29 +34,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set reusable strings
-        id: strings
+      - name: Set reusable strings (Linux and macOS)
+        id: linux_mac_strings
         shell: bash
         if: matrix.os != 'windows-latest'
         run: |
           echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-      - name: Configure CMake (Linux and macOS)
-        if: matrix.os != 'windows-latest'
+      - name: Set reusable strings (Windows)
+        id: windows_strings
+        shell: bash
+        if: matrix.os == 'windows-latest'
         run: |
-          cmake -B ${{ steps.strings.outputs.build-output-dir }} \
+          echo "build-output-dir=${{ github.workspace }}\\build" >> "$GITHUB_OUTPUT"
+
+      - name: Configure CMake
+        run: |
+          cmake -B ${{ steps.linux_mac_strings.outputs.build-output-dir || steps.windows_strings.outputs.build-output-dir }} \
           -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} \
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
           -S ${{ github.workspace }}
 
-      - name: Configure CMake (Windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          cmake -B ${{ steps.strings.outputs.build-output-dir }} -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -S ${{ github.workspace }}
-
       - name: Build
-        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+        run: cmake --build ${{ steps.linux_mac_strings.outputs.build-output-dir || steps.windows_strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
 
       - name: Test
-        working-directory: ${{ steps.strings.outputs.build-output-dir }}
+        working-directory: ${{ steps.linux_mac_strings.outputs.build-output-dir || steps.windows_strings.outputs.build-output-dir }}
         run: ctest --build-config ${{ matrix.build_type }}
